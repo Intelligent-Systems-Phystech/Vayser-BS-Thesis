@@ -5,5 +5,6 @@
 Требования содержатся в файле `requirements.txt`
 
 Пример работы можно посмотреть в файле [LaplaceApproximation.ipynb](https://github.com/Intelligent-Systems-Phystech/Vayser-BS-Thesis/blob/main/LaplaceApproximation.ipynb)
+
 Текущие результаты:
 ![](./report/roc_auc.jpg)
