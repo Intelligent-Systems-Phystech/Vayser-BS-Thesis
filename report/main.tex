@@ -1,0 +1,188 @@
+\documentclass[9pt,pdf,hyperref={unicode}]{beamer}
+\beamertemplatenavigationsymbolsempty
+
+\setbeamertemplate{blocks}[rounded=true, shadow=true]
+\setbeamertemplate{footline}[page number]
+\usepackage{multicol}
+
+% \usefonttheme{serif}
+
+% \usepackage{lmodern}
+\usepackage[russian]{babel}
+%\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,mathrsfs,mathtext}
+\usepackage{graphicx, epsfig}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{amsmath, bm}
+
+\usepackage{comment}
+
+\usepackage{tabularx}
+
+\usepackage{tikz}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\makeatletter
+\let\@@magyar@captionfix\relax
+\makeatother
+
+\usetheme{Warsaw}
+\usecolortheme{sidebartab}
+\definecolor{beamer@blendedblue}{RGB}{31,96,49}
+
+\setbeamertemplate{enumerate items}[circle]
+
+\setbeamersize{text margin left=1.5em, text margin right=1.5em}
+
+\usepackage{ragged2e}
+
+%----------------------------------------------------------------------------------------------------------
+\title[\hbox to 56mm{эффективные гауссовские процессы \hfill\insertframenumber\,/\,\inserttotalframenumber}]
+{Эффективное применение гауссовских процессов в задаче классификации}
+\author[Гребенькова О.\ С.]{\Large Вайсер Кирилл Олегович}
+\institute{ Московский физико-технический институт\\
+Факультет управления и прикладной математики\\
+Кафедра интеллектуальных систем\\
+~\\
+Научный руководитель к.ф.-м.н. М. \ Е. Панов
+}
+
+\date{\footnotesize{\emph{Москва}\\
+ 2020 г}}
+%----------------------------------------------------------------------------------------------------------
+\begin{document}
+%----------------------------------------------------------------------------------------------------------
+\begin{frame}
+\titlepage
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------------
+\begin{frame}{Задача эффективного применения гауссовских процессов}
+
+\begin{block}{Цель}
+Предложить быстрый 
+\end{block}
+
+~\\
+\begin{block}{Решаемая проблема}
+Вычисление параметров апостериорного распределения - долгая по времени операция. Кроме того, в явном виде оно не обладает свойством сопряженности.
+\end{block}
+
+~\\
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------------------------
+\begin{frame}{Идея}
+		\begin{block}{Метод решения}
+
+	Предлагаемый метод заключается в следующем:
+	\begin{enumerate}
+		\item
+		Использовать аппроксимацию Лапласа для получения свойства сопряженности.
+		\item
+		Использовать нейронную сеть для обучения ковариационной функции
+		\item 
+		Использовать методы эффективного сэмплирования для получения предсказаний.
+	\end{enumerate}
+	\end{block}
+	
+	
+    
+	\end{frame}
+%----------------------------------------------------------------------------------------------------------
+	
+
+%----------------------------------------------------------------------------------------------------------
+
+% \begin{frame}{Постановка задачи}
+% 	\begin{block}
+% 	    \textbf{Дано:} 
+%     \begin{enumerate}
+%         \item выборка 
+%     $$\mathfrak{D} = \{ \mathbf{x}_i, y_i\} \quad i = 1,\dots, m, \quad \mathbf{x}_i \in \mathbb{R}^m \quad y_i \in \{-1,1\} $$
+%         \item модель
+%     $$\mathbf{g}(\mathbf{x},\mathbf{w}):\mathbb{R}^m \times \mathbb{R}^n \longrightarrow\mathbb{R}^m \times \mathbb{R}^h,$$
+%      где $\mathbf{w} \in \mathbb{R}^n$ --- пространство параметров модели.
+%         \item априорное распределение гауссовского процесса 
+%     $$p(\mathbf{f}) \sim \mathcal{GP} (\boldsymbol{\mu}, K)$$
+%     \end{enumerate}
+% \end{block}
+% \end{frame}
+
+
+\begin{frame}{Постановка задачи}
+    \begin{enumerate}
+        \item выборка 
+    $$\mathfrak{D} = \{ \mathbf{x}_i, y_i\} \quad i = 1,\dots, m, \quad \mathbf{x}_i \in \mathbb{R}^m \quad y_i \in \{-1,1\} $$
+        \item модель
+    $$\mathbf{g}(\mathbf{x},\mathbf{w}):\mathbb{R}^m \times \mathbb{R}^n \longrightarrow\mathbb{R}^m \times \mathbb{R}^h,$$
+     где $\mathbf{w} \in \mathbb{R}^n$ --- пространство параметров модели.
+        \item априорное распределение гауссовского процесса 
+    $$p(\mathbf{f}) \sim \mathcal{GP} (\boldsymbol{\mu}, K)$$
+    \end{enumerate}
+\end{frame}
+%----------------------------------------------------------------------------------------------------------
+\begin{frame}{Постановка задачи}
+\textbf{Критерий качества:} 
+\begin{enumerate}
+    \item Точность 
+    $$A = \frac{1}{m}\sum\limits_{i=1}^m [\hat{y}_i = y_i] $$
+    \item AUC score
+    \item Неопределенность
+    $$\mathfrak{H}_pred = -\sum\limits_{c = -1,1} p(y=c|x) \log p(y=c|x)$$
+    \item Скорость работы
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Используемые подходы}
+\begin{enumerate}
+    \item Аппроксимация Лапласа
+    $$K_{post} = (K_{pr}^{-1} + \mathbf{W})^{-1},$$
+    где $\mathbf{W} = -\nabla^2 \log p(y|f)$
+    \item Факторизация ковариационной функции
+    $$K = G^TG + \sigma^2 I,$$
+    где $G$ - выход сети.
+    \item Эффективное сэмплирование
+    
+    Разреженное представление:
+    $$
+p\left(\boldsymbol{f}_{*} \mid \boldsymbol{y}\right) \approx \int_{\mathbb{R}^{m}} p\left(\boldsymbol{f}_{*} \mid \boldsymbol{u}\right) q(\boldsymbol{u}) \mathrm{d} \boldsymbol{u}
+$$
+    Представление Фурье:
+    $$
+f(\cdot)=\sum_{i=1}^{l} w_{i} \phi_{i}(\cdot)
+$$ 
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Текущие результаты}
+\includegraphics{roc_auc.jpg}
+\end{frame}
+
+
+\begin{frame}{Продолжение работы}
+\begin{enumerate}
+    \item
+	Добиться улучшения результатов работы сети.
+	\item 
+	Реализовать эффективное сэмплирование
+	\item
+	Исследовать подходы к поиску оптимальной подвыборки (BALD)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Ссылки}
+\begin{block}
+Исследовательская группа М.Е. Панова
+\end{block}
+\end{frame}
+
+\end{document} 

@@ -1,0 +1,6 @@
+numpy
+pandas
+scikit-learn
+torch>=1.4.0
+gpytorch==1.0.1
+tqdm
