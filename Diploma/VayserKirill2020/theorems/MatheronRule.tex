@@ -1,0 +1,254 @@
+\documentclass[12pt, twoside]{article}
+\setcounter{secnumdepth}{4}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\newcommand{\hdir}{.}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{euscript}
+\usepackage{upgreek}
+\usepackage{array}
+%\usepackage{theorem}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{caption}
+\usepackage{color}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{geometry}
+\usepackage{tikz,fullpage}
+\usepackage{enumerate}
+\usepackage{autonum}
+\usepackage{enumitem}%
+%\usepackage[unicode, pdftex]{hyperref}
+\usepackage{comment}
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{hyperref}
+\titleformat{\paragraph}[runin]{\normalfont\normalsize\bfseries}{}{0pt}{}
+% объявляем новую команду для переноса строки внутри ячейки таблицы
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\newcommand{\bmatr}{{\mathbf{B}}}
+\newcommand{\cmatr}{{\mathbf{C}}}
+\newcommand{\hmatr}{{\mathbf{H}}}
+\newcommand{\fmatr}{{\mathbf{F}}}
+\newcommand{\mmatr}{{\mathbf{M}}}
+\newcommand{\xmatr}{{\mathbf{X}}}
+\newcommand{\pmatr}{{\mathbf{P}}}
+\newcommand{\xmatrt}{{\tilde{\mathbf{X}}}}
+\newcommand{\imatr}{{\mathbf{I}}}
+\newcommand{\vmatr}{{\mathbf{V}}}
+\newcommand{\wmatr}{{\mathbf{W}}}
+\newcommand{\umatr}{{\mathbf{U}}}
+\newcommand{\zmatr}{{\mathbf{Z}}}
+\newcommand{\zmatrt}{{\tilde{\mathbf{Z}}}}
+\newcommand{\Tmatr}{\mathbf{T}}
+\newcommand{\lambdamatr}{{\mathbf{\Lambda}}}
+\newcommand{\phimatr}{\mathbf{\Phi}}
+\newcommand{\sigmamatr}{\mathbf{\Sigma}}
+\newcommand{\thetamatr}{\boldsymbol{\Theta}}
+\newcommand{\Ri}{\mathcal{R}}
+\newcommand{\rk}{\mathfrak{r}}
+\newcommand{\ab}{{\wm}}
+\newcommand{\bA}{{\mathbf{A}}}
+\newcommand{\ba}{{\mathbf{a}}}
+\newcommand{\bb}{{\mathbf{b}}}
+\newcommand{\cb}{{\mathbf{c}}}
+\newcommand{\db}{{\mathbf{d}}}
+\newcommand{\eb}{{\mathbf{e}}}
+\newcommand{\fb}{{\mathbf{f}}}
+\newcommand{\gb}{{\mathbf{g}}}
+\newcommand{\hb}{{\mathbf{h}}}
+\newcommand{\mb}{{\mathbf{m}}}
+\newcommand{\pb}{{\mathbf{p}}}
+\newcommand{\qb}{{\mathbf{q}}}
+\newcommand{\rb}{{\mathbf{r}}}
+\newcommand{\tb}{{\mathbf{t}}}
+\newcommand{\ub}{{\mathbf{u}}}
+\newcommand{\vb}{{\mathbf{v}}}
+\newcommand{\wb}{{\mathbf{W}}}
+\newcommand{\xb}{{\mathbf{x}}}
+\newcommand{\bz}{{\mathbf{z}}}
+\newcommand{\bZ}{{\mathbf{Z}}}
+\newcommand{\xt}{{\tilde{x}}}
+\newcommand{\xbt}{\tilde{{\mathbf{x}}}}
+
+\newcommand{\Kb}{{\mathbf{K}}}
+\newcommand{\Xb}{{\mathbf{X}}}
+\newcommand{\Ib}{{\mathbf{I}}}
+\newcommand{\yb}{{\mathbf{y}}}
+\newcommand{\zb}{{\bz}}
+\newcommand{\zt}{{\tilde{z}}}
+\newcommand{\zbt}{{\tilde{\bz}}}
+\newcommand{\mub}{{\boldsymbol{\mu}}}
+\newcommand{\alphab}{{\boldsymbol{\alpha}}}
+\newcommand{\thetab}{{\boldsymbol{\theta}}}
+\newcommand{\iotab}{\boldsymbol{\iota}}
+\newcommand{\zetab}{\boldsymbol{\zeta}}
+\newcommand{\xib}{\boldsymbol{\xi}}
+\newcommand{\xibt}{\tilde{\boldsymbol{\xi}}}
+\newcommand{\xit}{\tilde{\xi}}
+\newcommand{\betab}{{\boldsymbol{\beta}}}
+\newcommand{\phib}{{\boldsymbol{\phi}}}
+\newcommand{\psib}{{\boldsymbol{\psi}}}
+\newcommand{\gammab}{{\boldsymbol{\gamma}}}
+\newcommand{\lambdab}{{\boldsymbol{\lambda}}}
+\newcommand{\varepsilonb}{{\boldsymbol{\varepsilon}}}
+\newcommand{\pib}{{\boldsymbol{\pi}}}
+\newcommand{\sigmab}{{\boldsymbol{\sigma}}}
+\newenvironment{comment}{}{}
+
+
+
+\newcommand{\scl}{s_{\mathsf{c}}}
+\newcommand{\shi}{s_{\mathsf{h}}}
+\newcommand{\shib}{\mathbf{s}_{\mathsf{h}}}
+\newcommand{\MOD}{M}
+\newcommand{\entr}{\mathsf{H}}
+\newcommand{\REG}{\Omega}
+\newcommand{\Mquol}{V}
+\newcommand{\prob}{p}
+\newcommand{\expec}{\mathsf{E}}
+
+\newcommand{\xo}{{\overline{x}}}
+\newcommand{\Xo}{{\overline{x}}}
+\newcommand{\yo}{{\overline{y}}}
+
+\newcommand{\xbo}{{\overline{\mathbf{x}}}}
+\newcommand{\Xbo}{{\overline{\mathbf{X}}}}
+
+\newcommand{\Amc}{{\mathcal{A}}}
+\newcommand{\Bmc}{{\mathcal{B}}}
+\newcommand{\Cmc}{{\mathcal{C}}}
+\newcommand{\Jmc}{{\mathcal{J}}}
+\newcommand{\Imc}{{\mathcal{I}}}
+\newcommand{\Kmc}{{\mathcal{K}}}
+\newcommand{\Lmc}{{\mathcal{L}}}
+\newcommand{\Mmc}{{\mathcal{M}}}
+\newcommand{\Nmc}{{\mathcal{N}}}
+\newcommand{\Pmc}{{\mathcal{P}}}
+\newcommand{\Tmc}{{\mathcal{T}}}
+\newcommand{\Vmc}{{\mathcal{V}}}
+\newcommand{\Wmc}{{\mathcal{W}}}
+\newcommand{\Smi}{{\mathcal{S}}}
+\newcommand{\Xmc}{{\mathcal{X}}}
+
+\newcommand{\Rbb}{{\mathbb{R}}}
+
+
+\newcommand{\T}{^{\text{\tiny\sffamily\upshape\mdseries T}}}
+\newcommand{\deist}{\mathbb{R}}
+\newcommand{\ebb}{\mathbb{E}}
+
+\newcommand{\Amatr}{\wm}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\Umatr}{\mathbf{U}}
+\newcommand{\zetavec}{\boldsymbol{\zeta}}
+
+\newcommand{\M}{\mathbf{M}}
+\newcommand{\x}{{\mathbf{x}}}
+\newcommand{\z}{{\bz}}
+\newcommand{\ical}{{\mathcal{I}}}
+\newcommand{\tvec}{{\mathbf{t}}}
+\newcommand{\xvec}{{\mathbf{x}}}
+\newcommand{\zvec}{{\bz}}
+\newcommand{\bvec}{{\mathbf{b}}}
+\newcommand{\qvec}{{\bz}}
+\newcommand{\pvec}{{\mathbf{p}}}
+\newcommand{\wvec}{{\mathbf{W}}}
+\newcommand{\rvec}{{\mathbf{r}}}
+\newcommand{\thetavec}{{\mathbf{\theta}}}
+\newcommand{\y}{{\mathbf{y}}}
+\newcommand{\g}{{\mathbf{g}}}
+\newcommand{\w}{{\mathbf{W}}}
+\newcommand{\wm}{{\mathbf{w}}}
+\newcommand{\m}{{\mathbf{m}}}
+
+
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Утверждение}
+\newtheorem{definition}{Определение}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\graphicspath{ {pics/} }
+%\graphicspath{ {fig/} }
+\begin{document}
+\selectlanguage{russian}
+\title{\textbf{Правило Маферона}}
+\date{}
+\maketitle
+
+
+Работа посвящена эффективному сэмплированию из гауссовских процессов. Стандартная схема с репараметризацией требует минимум $O(m^3)$ операций для сэмплирования $m$ значений. Было разработано несколько методов представления гауссовского процесса для увеличения скорости сэмплирования. Ключевой идеей является разложение апостериорного распределения в сумму двух слагаемых~---априорного и некоторого обновления распределения. Представление этих слагаемых в определенном виде позволяет увеличить эффективность сэмлирования. Теоретическим обоснованием возможности подобного разложения служит предлагаемая к рассмотрению теорема.  
+\begin{theorem}
+(Правило Маферона). Пусть $\ba$ и $\bb$ - имеют совместное нормальное многомерное распределение. Тогда условное распределение на $\ba$ при $\bb = \mathbf{\beta}$ вычисляется как 
+\begin{equation}
+(\boldsymbol{a} \mid \boldsymbol{b}=\boldsymbol{\beta}) \stackrel{\mathrm{d}}{=} \boldsymbol{a}+\operatorname{Cov}(\boldsymbol{a}, \boldsymbol{b}) \operatorname{Cov}(\boldsymbol{b}, \boldsymbol{b})^{-1}(\boldsymbol{\beta}-\boldsymbol{b})
+\end{equation}
+
+\begin{proof}
+Доказательство можно провести двумя способами. Первый носит сугубо технический характер и представляет собой прямое вычисление матожидания и ковариационных матриц обоих частей по определению. В силу свойств нормального распределения, это будет означать совпадение функций плотности. Подробные вычисления читатель может увидеть 
+\href{http://fourier.eng.hmc.edu/e161/lectures/gaussianprocess/node7.html}{здесь}
+
+Мы приведем более изящное доказательство. Для удобства проведем переобозначения : $\Sigma_{11} = \operatorname{Cov}(\ba, \ba), \; \Sigma_{12} = \operatorname{Cov}(\ba, \bb), \; \Sigma_{21} = \operatorname{Cov}(\bb, \ba), \; \Sigma_{22} = \operatorname{Cov}(\bb, \bb) $. Пусть также $E \ba = \mub_1, \; E \bb = \mub_2$
+
+Обозначим $\bz=\ba+\bA \bb,$ где $\bA=-\Sigma_{12} \Sigma_{22}^{-1} .$ Тогда
+$$
+\begin{aligned}
+\operatorname{Cov}\left(\bz, \bb\right) &=\operatorname{Cov}\left(\ba, \bb\right)+\operatorname{Cov}\left(\bA \bb, \bb\right) =\Sigma_{12}+\bA \operatorname{var}\left(\bb\right) \\
+&=\Sigma_{12}-\Sigma_{12} \Sigma_{22}^{-1} \Sigma_{22}=0
+\end{aligned}
+$$
+Это значит, что $\bz$ и $\bb$ некореллированны и, вследствие их нормальности, независимы. Тогда $E\bz=\boldsymbol{\mu}_{1}+\bA \boldsymbol{\mu}_{2}.$ Из этого следует, что
+$$
+\begin{aligned}
+E\left(\ba \mid \bb\right) &=E\left(\bz-\bA \bb \mid \bb\right) \\
+&=E\left(\bz \mid \bb\right)-E\left(\bA \bb \mid \bb\right) \\
+&=E(\bz)-\bA \bb \\
+&=\boldsymbol{\mu}_{1}+\bA\left(\boldsymbol{\mu}_{2}-\bb\right) \\
+&=\boldsymbol{\mu}_{1}+\Sigma_{12} \Sigma_{22}^{-1}\left(\bb-\boldsymbol{\mu}_{2}\right)
+\end{aligned}
+$$
+Получается, что матожидания левой и правой части искомого тождества совпадают. Осталось рассмотреть ковариацию:
+$$
+\begin{aligned}
+\operatorname{var}\left(\ba \mid \bb\right) &=\operatorname{var}\left(\bz-\bA \bb \mid \bb\right) \\
+&=\operatorname{var}\left(\bz \mid \bb\right)+\operatorname{var}\left(\bA \bb \mid \bb\right)-\bA \operatorname{Cov}\left(\bb,\bz\right)-\operatorname{Cov}\left(\bz,\bb\right) \bA^{\top} \\
+&=\operatorname{var}\left(\bz \mid \bb\right) \\
+&=\operatorname{var}(\bz)
+\end{aligned}
+$$
+Раскроем получившееся выражение:
+$$
+\operatorname{var}\left(\ba \mid \bb\right)=\operatorname{var}(\bz)=\operatorname{var}\left(\ba+\bA \bb\right)
+$$
+$$
+\begin{array}{l}
+=\operatorname{var}\left(\ba\right)+\bA \operatorname{var}\left(\bb\right) \bA^{\top}+\bA \operatorname{Cov}\left(\bb, \ba\right)+\operatorname{Cov}\left(\ba, \bb\right) \bA^{\top} \\
+=\Sigma_{11}+\Sigma_{12} \Sigma_{22}^{-1} \Sigma_{22} \Sigma_{22}^{-1} \Sigma_{21}-2 \Sigma_{12} \Sigma_{22}^{-1} \Sigma_{21} \\
+=\Sigma_{11}+\Sigma_{12} \Sigma_{22}^{-1} \Sigma_{21}-2 \Sigma_{12} \Sigma_{22}^{-1} \Sigma_{21} \\
+=\Sigma_{11}-\Sigma_{12} \Sigma_{22}^{-1} \Sigma_{21}
+\end{array}
+$$
+Ковариации левой и правой части так же совпадают. В силу свойств нормального распределения отсюда следует искомое утверждение.
+\end{proof}
+
+\end{theorem}
+Эта теорема находит множество применений, в том числе в представленной работе. Из правила Маферона следует важное
+\begin{corollary}
+Пусть $f \sim GP(0, k)$, $\bZ$ - множество точек размера $m$ и $f_m = f(\bZ)$. Тогда 
+\begin{equation}
+    \underbrace{(f \mid f_m = \boldsymbol{u})(\cdot)}_{\text {posterior }} \stackrel{\mathrm{d}}{=} \underbrace{f(\cdot)}_{\text {prior }}+\underbrace{k(\cdot, \mathbf{Z}) \mathbf{K}_{m, m}^{-1}\left(\boldsymbol{u}-\boldsymbol{f}_{m}\right)}_{\text {update }}
+\end{equation}
+
+
+\end{corollary}
+
+
+\end{document}
+
